@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import MovieContainer from "./MovieContainer";
+import logo from "./images/logo.png";
 import "./Style.css";
 
 const API_URL =
@@ -21,22 +22,22 @@ function Container() {
     <>
       <div className="page-container">
         <div className="title-cinemille">
-        <nav>
-       <h1>CineMille</h1>
-        </nav> 
+          <nav>
+            <img className="logo" src={logo} alt="Logo"></img>
+            <h1>Movie Schedule</h1>
+          </nav>
         </div>
         <div className="movies-container">
-          {movies.map((m) => (
-            <Link to={`/detail/${m.id}`}>
-            <MovieContainer key={m.id} {...m} />
-          </Link>
-          ))}
-          
+          <div className="movies-container2">
+            {movies.map((m) => (
+              <Link to={`/detail/${m.id}`}>
+                <MovieContainer key={m.id} {...m} />
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </>
   );
 }
-export default Container
-
-
+export default Container;
