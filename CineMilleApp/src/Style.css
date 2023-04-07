@@ -8,7 +8,7 @@
   text-decoration: none;
 }
 
-body::before {
+.App::before {
   content: "";
   display: block;
   position: fixed;
@@ -21,6 +21,7 @@ body::before {
   opacity: 0.2;
   z-index: -1;
 }
+
 nav {
   background-color: rgb(0, 0, 0);
   width: 100%;
@@ -32,6 +33,12 @@ nav {
   top: 0;
   position: fixed;
   overflow: hidden;
+}
+#light nav {
+  border-bottom: 3px solid maroon;
+}
+#dark nav {
+  border-bottom: 3px solid #ffba00;
 }
 
 .page-container {
@@ -62,7 +69,12 @@ nav {
   width: 500px;
   transition: all 0.3s ease;
 }
-
+#light .movie-box {
+  background: rgb(255, 255, 255);
+}
+#dark .movie-box {
+  background: rgb(0, 0, 0);
+}
 .movie-box:hover {
   transform: scale(1.1);
 }
@@ -74,15 +86,31 @@ nav {
   gap: 10px;
 }
 
-p,
-h2,
-h3 {
+#light p, h2, h3 {
   color: rgb(0, 0, 0);
+}
+#dark p, h2, h3 {
+  color: rgb(255, 255, 255);
+}
+
+.film-title{
+  color: black;
+}
+#light .film-title {
+  color: rgb(0, 0, 0);
+}
+#dark .film-title {
+  color: rgb(255, 255, 255);
 }
 
 h1 {
-  color: #ffba00;
   font-weight: 400;
+}
+#light h1 {
+  color: #ffba00;
+}
+#dark h1 {
+  color: maroon;
 }
 
 /*==== Detail page ===*/
@@ -106,6 +134,14 @@ h1 {
   width: 50%;
   height: auto;
 }
+#light .detail-box {
+  border: 3px solid rgb(139, 21, 21);
+  background: rgb(255, 255, 255);
+}
+#dark .detail-box {
+  border: 3px solid #ffba00;
+  background: rgb(0, 0, 0);
+}
 
 /*=== Images ===*/
 .logo {
@@ -125,57 +161,57 @@ h1 {
   transform: rotateZ(5deg);
 }
 
-/*=== Button ===*/
-button {
+/*=== Buttons ===*/
+.button-detail {
   background-color: #ffba00;
   border-color: maroon;
   color: black;
   font-weight: 700;
   border-radius: 7px;
-  width: 100px;
-  height: 40px;
-  transition: all 0.3s ease; 
+  width: 80px;
+  height: 30px;
+  transition: all 0.3s ease;
 }
-
-button:hover {
+.button-detail:hover {
   color: maroon;
   transform: scale(1.1);
 }
 
-/* Stili per schermi con larghezza massima di 600px */
+#light .room-number {
+  color: maroon;
+}
+#dark .room-number {
+  color: #ffba00;
+}
+/*=== Media Query ===*/
 @media only screen and (max-width: 600px) {
   nav {
     height: 50px;
     padding: 0px 20px;
   }
-  
+
   .movie-box {
-  width: 350px
+    width: 350px;
   }
-  
+
   .text-container {
     margin: 10px;
   }
-  
+
   .detail-box {
     margin: 10px;
     padding: 10px;
     width: 90%;
   }
-  
+
   .img-detail {
     width: 150px;
   }
 
-  img{
+  img {
     width: 70px;
+  }
 
-  }
-  
-  button {
-    width: 80px;
-    height: 30px;
-  }
   .movies-container2 {
     display: flex;
     flex-direction: column;
@@ -188,5 +224,3 @@ button:hover {
     transform: scale(1);
   }
 }
-
-
